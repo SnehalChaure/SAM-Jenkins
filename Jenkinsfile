@@ -5,7 +5,7 @@ pipeline {
         
         stage('Build') {
             environment {
-            STACK_NAME = 'sam-app'
+            STACK_NAME = 'python-app'
                 }
             steps {
                 dir('Python-app'){
