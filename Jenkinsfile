@@ -9,10 +9,10 @@ pipeline {
             S3_BUCKET="demo-sam-app-s3-bucket"
                 }
             steps {
-                dir('Python-app'){
+                
                 withAWS(credentials: 'sam-demo-test', region: 'ap-south-1') {
                 sh 'sam build && sam deploy --stack-name -t template.yaml $STACK_NAME --s3-bucket $S3_BUCKET --capabilities CAPABILITY_IAM --no-confirm-changeset'
-                }
+                
             }
           }
         }
