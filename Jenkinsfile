@@ -2,13 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('beta') {
-        environment {
-        STACK_NAME = 'sam-app'
-        S3_BUCKET = 'sam-jenkins-demo-user1'
-        }
-        }
+        
         stage('Build') {
+            environment {
+            STACK_NAME = 'sam-app'
+            S3_BUCKET = 'sam-jenkins-demo-user1'
+            }
             steps {
                 dir('Python-app'){
                 withAWS(credentials: 'sam-demo-test', region: 'ap-south-1') {
